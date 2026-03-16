@@ -17,16 +17,23 @@ const Countries = ({countryList}) => {
         width:"90%"
     };
     function visit(e){
-        console.log('this country visiteed');
         
-        
+        let newVisited= [...visitedCountry,e]    
+        setVisitedCountry(newVisited)    
         
     }
+    console.log(visitedCountry);
     return (
         <div>
             <h1 style={{textAlign:"center"}}>List of the countries {countries.length}</h1>
             <hr />
-            <h1>Total country visited</h1>
+            <ol>
+                {
+                visitedCountry.map(name=><li key={name.ccn2.ccn3}>{name.name.common}</li>)
+            }
+            </ol>
+            <br />
+            <h1>Total country visited {visitedCountry.length}</h1>
             
              <div style={style}>
 
