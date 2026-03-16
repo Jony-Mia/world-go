@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, { Activity, useState } from 'react';
 
-const Country = ({country,visitedCountry}) => {
+const Country = ({country,visitedCountry,setClicker}) => {
     let [visited, setVisited] = useState(false);
-    let clicker= ()=>{
+    let [flags, setFlags] = useState(false);
+
+    let clicker= (e)=>{
         console.log('button clicked');
         
         if (visited) {
         setVisited(false)
-            
+        // setClicker(country)
+
         }else{
         setVisited(true)
+        // setClicker(country)
 
         visitedCountry(country)
         }
     }
+    function addFlags(){
+        if (flags) {
+            setFlags(false)
+        } else {
+            setFlags(true)
+        }
+    }
+    
     
     
     return (
@@ -22,13 +34,18 @@ const Country = ({country,visitedCountry}) => {
             <div className={visited?'visited' : "not-visited"} style={
                 {
                 boxShadow:'0 0 5px  gray',
-                height:'100%', borderRadius:"10px"
+                height:'100%', borderRadius:"10px",
+                padding:"10px"
                 }}>
                 <section>
                     <div style={{position:"relative"}}>
-                        <span style={{position:"absolute",right:"10px",top:"5px",height:'20px', width:"20px",background:"gray",color:"white",textAlign:'center',padding:"5px",borderRadius:"50%"}}>{}</span>
+                        <Activity mode={flags?"visible":"hidden"}>
+                            <span style={{position:"absolute",right:"0",top:"0",borderRadius:"0 0 0 10px ",background:"white",color:"white",textAlign:'center',padding:"5px"}}>
+                                <img src={country.flags?.flags?.png} width={40} alt="" />
+                            </span>
+                        </Activity>
                     </div>
-                    <img style={{borderRadius: '10px 10px 0 0',width:"100%"}}  src={country.flags?.flags?.png} alt={country.flags?.flags?.alt} />
+                    <img style={{borderRadius: '10px 10px 0 0',width:"100%"}}  src={country.flags?.flags?.svg} alt={country.flags?.flags?.alt} />
                 </section>
                 <section>
                     <section style={{ padding:'10px'}}>
@@ -44,7 +61,12 @@ const Country = ({country,visitedCountry}) => {
                             <p>Capital: {country.capital?.capital}</p>
                            </div>
                         </div>
+                        
+                    </section>
+                    <section style={{display:"flex"}}>
+                        
                         <button onClick={clicker} style={{textAlign:"center",display:"flex",justifyContent:"center",alignItems:"end",padding:"10px 20px",margin:"auto"}}>{visited ? "Visited": "Not Visited" }</button>
+                        <button onClick={addFlags} style={{textAlign:"center",display:"flex",justifyContent:"center",alignItems:"end",padding:"10px 20px",margin:"auto"}}>{flags ? "Flags Added": "Add Flag" }</button>
                     </section>
                 </section>
             </div>
