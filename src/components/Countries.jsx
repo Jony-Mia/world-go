@@ -2,7 +2,9 @@ import React, { use, useState } from 'react';
 import Country from './Country';
 
 const Countries = ({countryList}) => {
-    let [counter,setCounter] = useState(12);
+    let [visitedCountry,setVisitedCountry] = useState([]);
+
+
     let countryLists = use(countryList);
     let countries = countryLists.countries;
     const style = {
@@ -14,16 +16,22 @@ const Countries = ({countryList}) => {
         margin:'auto',
         width:"90%"
     };
-
+    function visit(e){
+        console.log('this country visiteed');
+        
+        
+        
+    }
     return (
         <div>
             <h1 style={{textAlign:"center"}}>List of the countries {countries.length}</h1>
             <hr />
-            <button onClick={()=>setCounter(counter+10)}>Add {counter}</button>
+            <h1>Total country visited</h1>
+            
              <div style={style}>
 
             {
-                countries.map(country=><Country  key={country.ccn3?.ccn3} country={country} />)
+                countries.map(country=><Country visitedCountry={visit} key={country.ccn3?.ccn3} country={country} />)
             }
              </div>
         </div>

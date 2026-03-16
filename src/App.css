@@ -1,3 +1,10 @@
 h1{
     text-align: center;
 }
+
+.visited{
+    border: 4px red solid;
+}
+.not-visited{
+    border: none;
+}

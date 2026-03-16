@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
-// import win10 from "../assets/Windows 11 Cursors Design Preview.png"
-const Country = ({country}) => {
+
+const Country = ({country,visitedCountry}) => {
     let [visited, setVisited] = useState(false);
     let clicker= ()=>{
         console.log('button clicked');
         
-        // setVisited(true)
         if (visited) {
         setVisited(false)
             
         }else{
         setVisited(true)
 
+        visitedCountry(country)
         }
     }
     
     
     return (
        <>
-       
-                <div>
-                    <div style={{boxShadow:'0 0 5px  gray',height:'100%', borderRadius:"10px"}}>
+          <div>
+            <div className={visited?'visited' : "not-visited"} style={
+                {
+                boxShadow:'0 0 5px  gray',
+                height:'100%', borderRadius:"10px"
+                }}>
                 <section>
                     <div style={{position:"relative"}}>
                         <span style={{position:"absolute",right:"10px",top:"5px",height:'20px', width:"20px",background:"gray",color:"white",textAlign:'center',padding:"5px",borderRadius:"50%"}}>{}</span>
                     </div>
-                    <img style={{borderRadius: '10px 10px 0 0',width:"100%"}}  src={country.flags?.flags?.png} alt="" />
+                    <img style={{borderRadius: '10px 10px 0 0',width:"100%"}}  src={country.flags?.flags?.png} alt={country.flags?.flags?.alt} />
                 </section>
                 <section>
                     <section style={{ padding:'10px'}}>
@@ -34,7 +37,7 @@ const Country = ({country}) => {
                             <span style={{fontSize:"18px"}}>Region: {country.region?.region}</span>
                         </div>
                         <div>
-                            <p style={{textAlign:'justify'}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat eligendi, totam voluptates nulla molestias ratione?</p>
+                            <p  style={{textAlign:'justify',lineClamp:"3", overflow:"hidden"}}>{country.flags?.flags?.alt}</p>
                            <div style={{gap:"5px",justifyContent:"space-around", display:"flex"}}>
                             
                             <p>Population: {country.population?.population}</p>
@@ -46,10 +49,7 @@ const Country = ({country}) => {
                 </section>
             </div>
                     
-                </div>
-                
-             
-       
+         </div>
        </>
     );
 };
