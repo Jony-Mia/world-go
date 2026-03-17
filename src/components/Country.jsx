@@ -65,8 +65,8 @@ const Country = ({country,visitedCountry,setClicker}) => {
                     </section>
                     <section style={{display:"flex"}}>
                         
-                        <button onClick={clicker} style={{textAlign:"center",display:"flex",justifyContent:"center",alignItems:"end",padding:"10px 20px",margin:"auto"}}>{visited ? "Visited": "Not Visited" }</button>
-                        <button onClick={addFlags} style={{textAlign:"center",display:"flex",justifyContent:"center",alignItems:"end",padding:"10px 20px",margin:"auto"}}>{flags ? "Flags Added": "Add Flag" }</button>
+                        <button className='btn btn-warning text-base-100' onClick={clicker} style={{textAlign:"center",display:"flex",justifyContent:"center",alignItems:"end",padding:"10px 20px",margin:"auto"}}>{visited ? "Visited": "Not Visited" }</button>
+                        <button className='btn btn-primary text-base-100' onClick={addFlags} style={{textAlign:"center",display:"flex",justifyContent:"center",alignItems:"end",padding:"10px 20px",margin:"auto"}}>{flags ? "Flags Added": "Add Flag" }</button>
                     </section>
                 </section>
             </div>
