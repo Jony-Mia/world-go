@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 
 let shop = [
     {id:1,category: "Fruits",     price: " $1", stock: true,  name:"Apple"},
@@ -58,6 +59,7 @@ function searchBar(e){
 
     return(
     <>
+    <Navbar/>
             <br />
             <Search searchBar={searchBar}></Search> 
             <br />

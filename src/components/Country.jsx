@@ -5,28 +5,16 @@ const Country = ({country,visitedCountry,setClicker}) => {
     let [flags, setFlags] = useState(false);
 
     let clicker= (e)=>{
-        console.log('button clicked');
         
         if (visited) {
         setVisited(false)
-        // setClicker(country)
-
         }else{
         setVisited(true)
-        // setClicker(country)
 
         visitedCountry(country)
         }
     }
-    function addFlags(){
-        if (flags) {
-            setFlags(false)
-        } else {
-            setFlags(true)
-        }
-    }
-    
-    
+    const addFlags=()=> flags ? setFlags(false): setFlags(true)
     
     return (
        <>
